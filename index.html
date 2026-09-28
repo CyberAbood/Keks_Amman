@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keks Amman | كيكس عمّان - كيكات وتشيزكيك وتارت فاخر</title>
+    <meta name="description" content="منيو كيكس عمّان المعتمد: تشيز كيك الفستق الحلبي، تارت البروفيترول، كيكة الفانيلا بالتوت، الماتيلدا، لندن كيك، كوكيز وكاسات حلى. توصيل داخل عمّان — اطلب الآن عبر واتساب.">
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Fredoka:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS Style -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Spline 3D Viewer Module -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.95/build/spline-viewer.js"></script>
+
+    <!-- Global Image Fallback (inline, no external dependency) -->
+    <script>
+        (function () {
+            var PLACEHOLDER = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">' +
+                '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
+                '<stop offset="0" stop-color="#f3e6cf"/><stop offset="1" stop-color="#dcc396"/>' +
+                '</linearGradient></defs><rect width="400" height="400" fill="url(#g)"/>' +
+                '<text x="200" y="215" font-family="Outfit,Arial,sans-serif" font-size="46" font-weight="700" ' +
+                'fill="#4a4a4a" text-anchor="middle" letter-spacing="6">KEKS</text></svg>'
+            );
+            window.addEventListener("error", function (e) {
+                var el = e.target;
+                if (!el || el.tagName !== "IMG") return;
+                if (el.dataset.fallbackApplied) return;
+                el.dataset.fallbackApplied = "1";
+                el.src = PLACEHOLDER;
+            }, true);
+        })();
+    </script>
+
+    <!-- Google Maps API with Places Library -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArktg10pFRz0snq_4ZA2Fsp60JxzMOKLA&libraries=places&language=ar&region=JO" defer></script>
+</head>
+<body>
+
+    <!-- Confetti Canvas for celebratory adding to cart -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Top Glow Overlay for Modern Design -->
+    <div class="top-glow"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="main-header" id="main-header">
+        <div class="container header-container">
+            <!-- Brand Logo & Name -->
+            <a href="#" class="brand-logo" id="brand-logo">
+                <div class="logo-wrapper" style="background: none; box-shadow: none; transform: none; width: auto; height: auto; display: flex; align-items: center; justify-content: center;">
+                    <img src="logo.jpg" alt="شعار كيكس" class="brand-logo-img" width="50" height="50">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name font-arabic">كيكس عمّان</span>
+                    <span class="brand-subtext font-arabic">حلويات وتمر فاخر</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="nav-link active" data-key="nav-home">الرئيسية</a></li>
+                    <li><a href="#story" class="nav-link" data-key="nav-story">قصة كيكس</a></li>
+                    <li><a href="#menu" class="nav-link" data-key="nav-menu">قائمة الحلويات</a></li>
+                    <li><a href="#baking" class="nav-link" data-key="nav-oven">مطبخنا الفاخر</a></li>
+                    <li><a href="#instagram" class="nav-link" data-key="nav-instagram">تابعنا</a></li>
+                </ul>
+            </nav>
+
+            <!-- Action Controls (Language & Cart) -->
+            <div class="header-actions">
+                <!-- Language Toggle Button -->
+                <button class="lang-toggle-btn" id="lang-toggle-btn" aria-label="Switch Language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="lang-text">English</span>
+                </button>
+
+                <!-- Premium Floating Cart Trigger -->
+                <button class="cart-trigger-btn" id="cart-trigger-btn" aria-label="Open Cart">
+                    <div class="cart-icon-wrapper">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge" id="cart-badge-count">0</span>
+                    </div>
+                    <span class="cart-price font-english" id="cart-badge-total">0.00 JD</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+                <!-- Left Side: Dynamic Text -->
+                <div class="hero-content">
+                    <span class="badge-tag font-arabic" id="hero-mini-tag">👑 تمور فاخرة وشوكولاتة وترافلز بالأردن</span>
+                    <h1 class="hero-title font-arabic" id="hero-main-title">
+                        إبداعات الحلويات الفاخرة <br>
+                        <span class="text-gradient">صُنعت بكل حب وإتقان!</span>
+                    </h1>
+                    <p class="hero-description font-arabic" id="hero-desc">
+                        مرحباً بكم في كيكس! نقدم لكم تشكيلة ملكية فاخرة من تمور المجهول المحشوة، وترافلز الشوكولاتة البلجيكية الغنية، والبيتيفور المبتكر المصنوع يدوياً بأجود المكونات الطبيعية في عمّان. نخبز ونحضر كل قطعة بكل شغف لتسعد حواسكم في كل مناسبة وجمع عائلية دافئة.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="#menu" class="btn btn-primary font-arabic" id="hero-cta-order">
+                            <i class="fa-solid fa-cookie"></i> اطلب الآن
+                        </a>
+                        <a href="#story" class="btn btn-secondary font-arabic" id="hero-cta-story">
+                            اكتشف قصتنا <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num font-english">100%</span>
+                            <span class="stat-label font-arabic" data-key="hero-stat-age">شغف بالتميز</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num font-english">100%</span>
+                            <span class="stat-label font-arabic" data-key="hero-stat-love">مكونات طبيعية</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num font-english">10+</span>
+                            <span class="stat-label font-arabic" data-key="hero-stat-flavors">إبداعات ملكية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Luxury Product Showcase -->
+                <div class="hero-3d-wrapper">
+                    <div class="spline-container-card">
+                        <!-- Soft Glowing Circles behind viewer -->
+                        <div class="glow-sphere sphere-1"></div>
+                        <div class="glow-sphere sphere-2"></div>
+                        
+                        <!-- Floating Badge overlays -->
+                        <div class="floating-badge badge-top-right bounce-slow">
+                            <span class="badge-icon">👑</span>
+                            <span class="badge-text font-arabic" data-key="badge-spin">البوكس الأكثر طلباً!</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-left bounce-reverse">
+                            <span class="badge-icon">✨</span>
+                            <span class="badge-text font-english">Royal Box</span>
+                        </div>
+                        
+                        <!-- Premium image frame -->
+                        <div class="spline-iframe-holder" style="border: 2px solid var(--clr-gold); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-premium);">
+                            <img src="images/hero-showcase.jpg" loading="lazy" decoding="async" alt="تشكيلة كيكس الفاخرة" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wave transition to next section -->
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1130.5,123.6,1064.67,113.6,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- KEKS' CRAFTSMANSHIP STORY SECTION -->
+        <section class="story-section" id="story">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-arabic" data-key="story-subtitle">رحلتنا في عالم الحلويات الفاخرة</span>
+                    <h2 class="section-title font-arabic" data-key="story-title">قصة الإبداع والتميز في كيكس 🌴🍫</h2>
+                    <p class="section-desc font-arabic" data-key="story-description">
+                        قصة شغف بدأت في عمّان لصنع أرقى إبداعات الحلويات التي تمزج عراقة تمور المجهول والنمورة والبيتيفور بفخامة الشوكولاتة البلجيكية المبتكرة.
+                    </p>
+                </div>
+
+                <!-- Story Interactive Slider / Timeline -->
+                <div class="story-interactive-container">
+                    <!-- Left: Interactive Comic Screen -->
+                    <div class="story-comic-window">
+                        <div class="story-slide active" id="story-slide-1">
+                            <div class="slide-illustration">
+                                <div class="character-circle">
+                                    <span class="character-emoji animate-wobble">🌴🍫</span>
+                                </div>
+                                <div class="sparkles-container">
+                                    <i class="fa-solid fa-star sparkle-1"></i>
+                                    <i class="fa-solid fa-star sparkle-2"></i>
+                                    <i class="fa-solid fa-heart sparkle-3"></i>
+                                </div>
+                            </div>
+                            <div class="slide-bubble">
+                                <h3 class="bubble-title font-arabic">رؤية التميز والإبداع</h3>
+                                <p class="bubble-text font-arabic">بدأ كيكس عمّان بشغف حقيقي لصنع أرقى الحلويات والتمور الفاخرة في الأردن، بدمج عراقة تمور المجهول المحلية بفخامة الشوكولاتة البلجيكية المبتكرة.</p>
+                            </div>
+                        </div>
+
+                        <div class="story-slide" id="story-slide-2">
+                            <div class="slide-illustration">
+                                <div class="character-circle">
+                                    <span class="character-emoji animate-shake">🌴✨</span>
+                                </div>
+                                <div class="sparkles-container">
+                                    <i class="fa-solid fa-star sparkle-1"></i>
+                                </div>
+                            </div>
+                            <div class="slide-bubble">
+                                <h3 class="bubble-title font-arabic">انتقاء تمور المجهول الفاخرة</h3>
+                                <p class="bubble-text font-arabic">نختار حبات تمر المجهول الفاخرة واحدة تلو الأخرى بعناية فائقة، للتأكد من حجمها المثالي وجودتها العالية لتكون مناسبة للتقديم الملوكي والضيافة الراقية.</p>
+                            </div>
+                        </div>
+
+                        <div class="story-slide" id="story-slide-3">
+                            <div class="slide-illustration">
+                                <div class="character-circle">
+                                    <span class="character-emoji animate-pulse-slow">🍫🔥</span>
+                                </div>
+                                <div class="drawing-paper">
+                                    <i class="fa-solid fa-heart drawing-heart"></i>
+                                </div>
+                            </div>
+                            <div class="slide-bubble">
+                                <h3 class="bubble-title font-arabic">شوكولاتة بلجيكية فاخرة</h3>
+                                <p class="bubble-text font-arabic">نستخدم أفضل أنواع الشوكولاتة البلجيكية الغنية (الداكنة، بالحليب، والبيضاء)، ونقوم بإذابتها بدرجات حرارة مثالية لصنع تغطية ناعمة وساحرة تذوب في الفم.</p>
+                            </div>
+                        </div>
+
+                        <div class="story-slide" id="story-slide-4">
+                            <div class="slide-illustration">
+                                <div class="character-circle">
+                                    <span class="character-emoji animate-jump">🌸🌰</span>
+                                </div>
+                                <div class="eidiya-coins">
+                                    <i class="fa-solid fa-star gold-coins"></i>
+                                </div>
+                            </div>
+                            <div class="slide-bubble">
+                                <h3 class="bubble-title font-arabic">حشوات وتزيين فني</h3>
+                                <p class="bubble-text font-arabic">نحشو إبداعاتنا بكريمة الفستق الحلبي الغنية والكراميل الدافئ، ونزينها يدوياً بحبات اللوز المقرمش وبتلات الورد الجوري الطبيعي المجفف لإضافة رونق جمالي ساحر.</p>
+                            </div>
+                        </div>
+
+                        <div class="story-slide" id="story-slide-5">
+                            <div class="slide-illustration">
+                                <div class="character-circle">
+                                    <span class="character-emoji animate-heartbeat">🎁✨</span>
+                                </div>
+                                <div class="love-hearts">
+                                    <i class="fa-solid fa-heart heart-big"></i>
+                                </div>
+                            </div>
+                            <div class="slide-bubble">
+                                <h3 class="bubble-title font-arabic">علب التغليف الفاخرة</h3>
+                                <p class="bubble-text font-arabic">نصمم ونرتب منتجاتنا داخل علب التغليف النعناعية والذهبية الفاخرة لتكون بمثابة تحفة فنية جاهزة للتقديم الملوكي والإهداء الراقي في كل المناسبات.</p>
+                            </div>
+                        </div>
+
+                        <div class="story-slide" id="story-slide-6">
+                            <div class="slide-illustration">
+                                <div class="character-circle" style="display: none;">
+                                    <span class="character-emoji animate-float">👑🎉</span>
+                                </div>
+                                <div class="original-screenshot-frame" style="max-width: 320px; border-radius: 16px; border: 2px solid var(--clr-gold); box-shadow: var(--shadow-medium); transform: rotate(0deg);">
+                                    <img src="images/story-box.jpg" loading="lazy" decoding="async" alt="بوكس كيكس للضيافة والإهداء" class="story-screenshot-img" style="border-radius: 12px; object-fit: cover; height: 180px;">
+                                    <span class="original-tag font-arabic" style="background: var(--grad-primary); color: #fff;">التشكيلة الملكية 👑</span>
+                                </div>
+                            </div>
+                            <div class="slide-bubble">
+                                <h3 class="bubble-title font-arabic">ضيافة ملكية تصلك أينما كنت</h3>
+                                <p class="bubble-text font-arabic">تصلكم علب كيكس مغلفة بقمة الجودة والجمال عبر سيارات توصيل مخصصة للحفاظ على رونقها وسخاوة طعمها، لتضفي الفخامة على جمعاتكم السعيدة بالأردن.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Navigation Steps & Timeline Details -->
+                    <div class="story-timeline-navigation">
+                        <button class="timeline-step active" data-slide="1">
+                            <span class="step-num font-english">1</span>
+                            <span class="step-label font-arabic">رؤية التميز</span>
+                        </button>
+                        <button class="timeline-step" data-slide="2">
+                            <span class="step-num font-english">2</span>
+                            <span class="step-label font-arabic">تمور المجهول</span>
+                        </button>
+                        <button class="timeline-step" data-slide="3">
+                            <span class="step-num font-english">3</span>
+                            <span class="step-label font-arabic">شوكولاتة فاخرة</span>
+                        </button>
+                        <button class="timeline-step" data-slide="4">
+                            <span class="step-num font-english">4</span>
+                            <span class="step-label font-arabic">تزيين فني</span>
+                        </button>
+                        <button class="timeline-step" data-slide="5">
+                            <span class="step-num font-english">5</span>
+                            <span class="step-label font-arabic">التغليف الملكي</span>
+                        </button>
+                        <button class="timeline-step" data-slide="6">
+                            <span class="step-num font-english">6</span>
+                            <span class="step-label font-arabic">ضيافة استثنائية</span>
+                        </button>
+                    </div>
+
+                    <!-- Story Audio/Autoplay Control Panel -->
+                    <div class="story-controls">
+                        <button class="btn btn-icon" id="story-prev-btn" aria-label="Previous Slide">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        <div class="story-progress-indicator">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <button class="btn btn-icon" id="story-next-btn" aria-label="Next Slide">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE SHOP MENU SECTION -->
+        <section class="menu-section" id="menu">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-arabic" data-key="menu-subtitle">تشكيلة ملكية فاخرة</span>
+                    <h2 class="section-title font-arabic" data-key="menu-title">استكشف قائمة إبداعات كيكس 🌴  🍫</h2>
+                    <p class="section-desc font-arabic" data-key="menu-description">
+                        قائمة كيكس المعتمدة بالكامل: كيكات، تشيزكيك، تارت، كوكيز، وكاسات حلى. اختر الحجم المناسب لعدد ضيوفك وأضفه لسلتك مباشرة.
+                    </p>
+                    <p class="menu-sizes-note font-arabic" data-key="menu-sizes-note">الحجم الصغير 6 أشخاص · الوسط 10 أشخاص · الكبير 15 شخص · جميع الأسعار شاملة التوصيل داخل عمّان</p>
+                    
+                    <!-- Menu Category Filters -->
+                    <div class="menu-filters">
+                        <button class="filter-btn active" data-filter="all" data-key="filter-all">الكل 🍽️</button>
+                        <button class="filter-btn" data-filter="cakes" data-key="filter-cakes">الكيكات والتشيزكيك 🎂</button>
+                        <button class="filter-btn" data-filter="tarts" data-key="filter-tarts">التارت والفطائر 🥧</button>
+                        <button class="filter-btn" data-filter="mini" data-key="filter-mini">الحلويات الصغيرة والكاسات 🍪</button>
+                        <button class="filter-btn" data-filter="boxes" data-key="filter-boxes">البوكسات والمناسبات 🎁</button>
+                    </div>
+                </div>
+
+                <!-- Cookie Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Dynamic cookie cards will be injected by JavaScript -->
+                </div>
+                
+                <!-- Original Menu Reference Polaroid (Super premium inclusion) -->
+                <div class="menu-original-reference">
+                    <div class="original-polaroid">
+                        <div class="polaroid-img-wrapper">
+                            <img src="images/official-menu.jpg" alt="منيو كيكس الرسمي" class="original-menu-screenshot" loading="lazy" decoding="async">
+                        </div>
+                        <p class="polaroid-caption font-arabic" data-key="original-polaroid-caption">منيو كيكس الرسمي المعتمد بكامل الأصناف والأسعار 📋</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRESH BAKING PROCESS / OVEN SECTION -->
+        <section class="baking-section" id="baking">
+            <div class="container baking-container">
+                <!-- Left Column: Oven Image & Glowing Hot Design -->
+                <div class="baking-visual">
+                    <div class="oven-frame" style="border: 2px solid var(--clr-gold); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-premium);">
+                        <div class="oven-glow-element" style="background: radial-gradient(circle, rgba(212,175,55,0.3) 0%, rgba(0,0,0,0) 70%);"></div>
+                        <img src="images/kitchen.jpg" loading="lazy" decoding="async" alt="مطبخ كيكس أثناء تحضير الكيك" class="oven-image" style="width: 100%; height: 100%; object-fit: cover;">
+                        <span class="live-baking-tag font-arabic" style="background: var(--grad-primary);"><i class="fa-solid fa-circle animate-pulse-fast"></i> صنع يدوي طازج</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Process & Details -->
+                <div class="baking-text">
+                    <span class="badge-tag font-arabic" data-key="oven-tag">✨ إتقان وحرفية عالية في الصنع</span>
+                    <h2 class="baking-title font-arabic" data-key="oven-title">مطبخ كيكس الفاخر: جودة بلا تنازل! 👩‍🍳🏡</h2>
+                    <p class="baking-description font-arabic" data-key="oven-desc">
+                        نحن في كيكس نؤمن بأن الفخامة تكمن في التفاصيل. لا نستخدم مواد حافظة ولا نكهات صناعية. نختار حبات تمر المجهول الفاخرة واحدة تلو الأخرى، ونستخدم أجود أنواع الشوكولاتة البلجيكية، والفستق الحلبي المقرمش، وبتلات الورد الجوري الطبيعي المجفف، لنحضر لكم تحفة فنية تأسر القلوب وتذوب في الفم.
+                    </p>
+                    <ul class="baking-bullets font-arabic">
+                        <li><i class="fa-solid fa-circle-check"></i> مكونات طبيعية وفاخرة 100% (شوكولاتة بلجيكية وتمر مجهول أصلي).</li>
+                        <li><i class="fa-solid fa-circle-check"></i> صنع يدوي طازج يومياً بحرفية ودقة عالية للغاية.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> ترتيب وتغليف ملكي فاخر يناسب كافة أوقاتكم ومناسباتكم الراقية.</li>
+                    </ul>
+                    
+                    <div class="delivery-notice-card glass-card">
+                        <div class="notice-icon" style="color: var(--clr-gold);"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                        <div class="notice-text">
+                            <h4 class="notice-title font-arabic" data-key="notice-title">معلومات التوصيل والطلب بالأردن 🇯🇴</h4>
+                            <p class="notice-desc font-arabic" id="delivery-notes-text">
+                                الحد الأدنى للطلب للتوصيل هو <strong>10 دنانير أردنية</strong>. نصلكم طازجاً وبأسرع وقت بسيارات توصيل مخصصة ومجهزة للحفاظ على جودة وشكل علب التغليف الفاخرة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM FEED / REVIEW SECTION -->
+        <section class="instagram-section" id="instagram">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-arabic" data-key="insta-subtitle">تابعوا إبداعاتنا وصورنا الحية</span>
+                    <h2 class="section-title font-arabic" data-key="insta-title">عائلتنا على انستغرام 📸✨</h2>
+                    <p class="section-desc font-arabic" data-key="insta-description">
+                        تابعوا حسابنا الرسمي لمشاهدة فيديوهات التحضير الفاخرة، وآراء زبائننا، والطلب المباشر Direct Message لعروضنا الحصرية!
+                    </p>
+                    <a href="https://www.instagram.com/keks.amman/" target="_blank" class="btn btn-instagram font-arabic">
+                        <i class="fa-brands fa-instagram"></i> @keks.amman
+                    </a>
+                </div>
+
+                <!-- Custom Mock Premium Instagram Grid -->
+                <div class="instagram-grid">
+                    <a href="https://www.instagram.com/keks.amman/" target="_blank" class="instagram-item glass-card">
+                        <img src="images/insta-1.jpg" loading="lazy" decoding="async" alt="كيكة الفستق الحلبي من كيكس" class="insta-img" style="object-fit: cover; height: 320px; width: 100%;">
+                        <div class="insta-overlay">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="likes font-english"><i class="fa-solid fa-heart"></i> 412</span>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/keks.amman/" target="_blank" class="instagram-item glass-card">
+                        <img src="images/insta-2.jpg" loading="lazy" decoding="async" alt="تارت البروفيترول بالفستق من كيكس" class="insta-img" style="object-fit: cover; height: 320px; width: 100%;">
+                        <div class="insta-overlay">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="likes font-english"><i class="fa-solid fa-heart"></i> 589</span>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/keks.amman/" target="_blank" class="instagram-item glass-card">
+                        <img src="images/insta-3.jpg" loading="lazy" decoding="async" alt="تشكيلة الحلويات الصغيرة من كيكس" class="insta-img" style="object-fit: cover; height: 320px; width: 100%;">
+                        <div class="insta-overlay">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="likes font-english"><i class="fa-solid fa-heart"></i> 347</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FLOATING CART DRAWER PANEL -->
+    <div class="cart-drawer-backdrop" id="cart-drawer-backdrop"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3 class="cart-drawer-title font-arabic" data-key="cart-title"><i class="fa-solid fa-bag-shopping"></i> سلة طلباتك</h3>
+            <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Cart">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="cart-drawer-body">
+            <!-- Empty state -->
+            <div class="cart-empty-state" id="cart-empty-state">
+                <div class="empty-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+                <h4 class="empty-title font-arabic" data-key="cart-empty-title">سلتك فارغة حالياً</h4>
+                <p class="empty-desc font-arabic" data-key="cart-empty-desc">تصفح قائمة الطعام المميزة وأضف الكوكيز اللذيذ لسلتك لبدء خبزه بحب!</p>
+                <a href="#menu" class="btn btn-primary font-arabic" id="empty-shop-btn">استكشف القائمة</a>
+            </div>
+
+            <!-- Items list -->
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Cart items will be dynamically appended here -->
+            </div>
+        </div>
+
+        <div class="cart-drawer-footer">
+            <!-- Delivery limit indicator progress bar -->
+            <div class="delivery-progress-container" id="delivery-progress-container">
+                <div class="delivery-progress-text font-arabic" id="delivery-progress-text">
+                    متبقي <strong>10.00 JD</strong> للوصول للحد الأدنى للتوصيل
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="delivery-progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="cart-summary-totals">
+                <div class="summary-row">
+                    <span class="summary-label font-arabic" data-key="cart-subtotal">المجموع الفرعي</span>
+                    <span class="summary-val font-english" id="cart-total-val">0.00 JD</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary checkout-btn font-arabic" id="cart-checkout-btn" disabled>
+                <i class="fa-brands fa-whatsapp"></i> <span data-key="btn-checkout">تأكيد الطلب وإرساله للواتساب</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT ORDER FORM MODAL -->
+    <div class="checkout-modal-backdrop" id="checkout-modal-backdrop"></div>
+    <div class="checkout-modal glass-card" id="checkout-modal">
+        <div class="checkout-modal-header">
+            <h3 class="modal-title font-arabic" data-key="checkout-title"><i class="fa-solid fa-receipt"></i> تفاصيل التوصيل والطلب</h3>
+            <button class="modal-close-btn" id="checkout-close-btn" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="checkout-modal-body">
+            <form id="checkout-form" class="font-arabic">
+                <div class="form-group">
+                    <label for="client-name" data-key="form-name">الاسم الكامل *</label>
+                    <input type="text" id="client-name" name="name" required placeholder="مثال: أحمد محمد">
+                </div>
+                <div class="form-group">
+                    <label for="client-phone" data-key="form-phone">رقم الهاتف *</label>
+                    <input type="tel" id="client-phone" name="phone" required placeholder="مثال: 079XXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="client-address" data-key="form-address">عنوان التوصيل بالتفصيل *</label>
+                    <textarea id="client-address" name="address" required placeholder="مثال: عمان، شارع المدينة المنورة، بناء رقم 12، شقة 4" rows="2"></textarea>
+                </div>
+                <div class="form-group map-group">
+                    <label id="map-label" data-key="map-label"><i class="fa-solid fa-map-location-dot"></i> حدد موقع التوصيل على الخريطة *</label>
+                    <div class="map-search-wrapper">
+                        <input type="text" id="map-search-input" placeholder="ابحث عن منطقتك أو موقعك في عمان...">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    </div>
+                    <div id="checkout-map"></div>
+                    <span class="map-help font-arabic" id="map-help-text" data-key="map-help">اسحب الدبوس 📍 أو انقر على الخريطة لتحديد موقع التوصيل بدقة.</span>
+                </div>
+                <div class="form-group">
+                    <label for="client-time" data-key="form-time">وقت التوصيل المفضل</label>
+                    <select id="client-time" name="time">
+                        <option value="الفترة المسائية (4 عصراً - 9 مساءً)" data-key="opt-evening">الفترة المسائية (4 عصراً - 9 مساءً) - الأفضل للتوصيل للمنزل</option>
+                        <option value="الفترة الصباحية والظهر (11 ظهراً - 4 عصراً)" data-key="opt-noon">الفترة الصباحية والظهر (11 ظهراً - 4 عصراً)</option>
+                        <option value="تنسيق خاص لاحقاً" data-key="opt-custom">تنسيق خاص لاحقاً عبر الواتساب</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="client-notes" data-key="form-notes">ملاحظات إضافية أو كتابة عبارة إهداء على البوكس</label>
+                    <textarea id="client-notes" name="notes" placeholder="مثال: يرجى كتابة عبارة 'كل عام وأنت بخير' على علبة الإهداء" rows="2"></textarea>
+                </div>
+                
+                <!-- Payment Method Selector -->
+                <div class="form-group">
+                    <label for="payment-method" data-key="form-payment"><i class="fa-solid fa-credit-card"></i> طريقة الدفع المفضلة *</label>
+                    <select id="payment-method" name="payment_method" required>
+                        <option value="cod" data-key="opt-cod">💵 الدفع عند الاستلام (Cash on Delivery)</option>
+                        <option value="zaincash" data-key="opt-zaincash">📱 محفظة زين كاش (Zain Cash Wallet)</option>
+                        <option value="cliq" data-key="opt-cliq">⚡ نظام كليك الفوري (CliQ Instant Pay)</option>
+                    </select>
+                </div>
+
+                <!-- Zain Cash Details Card -->
+                <div id="zaincash-details-block" class="payment-details-card zaincash-theme" style="display: none;">
+                    <div class="card-header-row">
+                        <span class="payment-badge">Zain Cash 📱</span>
+                    </div>
+                    <p class="payment-instruction">يرجى تحويل مبلغ الطلب بالكامل إلى محفظة زين كاش التالية:</p>
+                    <div class="credential-copy-box">
+                        <span class="credential-label">رقم المحفظة:</span>
+                        <strong class="credential-value font-english" id="zaincash-wallet-num">0781124849</strong>
+                        <button type="button" class="btn-copy-cred" id="copy-zaincash-btn" title="نسخ الرقم">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                    <span class="copy-feedback" id="zaincash-copy-feedback">تم نسخ رقم المحفظة!</span>
+                </div>
+
+                <!-- CliQ Details Card -->
+                <div id="cliq-details-block" class="payment-details-card cliq-theme" style="display: none;">
+                    <div class="card-header-row">
+                        <span class="payment-badge">CliQ ⚡</span>
+                    </div>
+                    <p class="payment-instruction">يرجى تحويل مبلغ الطلب عبر نظام كليك البنكي الفوري:</p>
+                    <div class="credential-copy-box">
+                        <span class="credential-label">الاسم المستعار (Alias):</span>
+                        <strong class="credential-value font-english" id="cliq-alias-val">KeksAmman</strong>
+                        <button type="button" class="btn-copy-cred" id="copy-cliq-btn" title="نسخ الاسم المستعار">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="credential-row-simple">
+                        <span class="credential-label">اسم البنك:</span>
+                        <strong class="credential-value-simple font-arabic" id="cliq-bank-name">البنك العربي (Arab Bank)</strong>
+                    </div>
+                    <span class="copy-feedback" id="cliq-copy-feedback">تم نسخ الاسم المستعار!</span>
+                </div>
+
+                <!-- Screenshot Receipt Upload Block -->
+                <div id="screenshot-upload-block" class="form-group" style="display: none; margin-top: 15px;">
+                    <label for="transfer-receipt" id="screenshot-upload-label"><i class="fa-solid fa-cloud-arrow-up"></i> تحميل صورة إشعار التحويل / لقطة الشاشة *</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="transfer-receipt" name="transfer_receipt" accept="image/*">
+                        <div class="file-upload-visual">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span id="file-upload-text">اضغط هنا لرفع إشعار التحويل الجاري</span>
+                        </div>
+                    </div>
+                    <div id="screenshot-preview-holder" style="display: none; margin-top: 12px; text-align: center;">
+                        <img id="screenshot-preview" src="" alt="Screenshot Receipt Preview" style="max-height: 160px; border-radius: var(--radius-sm); border: 2px solid var(--clr-gold); padding: 4px; background: rgba(0,0,0,0.3); box-shadow: var(--shadow-soft);">
+                    </div>
+                    <span class="map-help font-arabic" id="screenshot-help-text">يرجى رفع لقطة شاشة واضحة لعملية التحويل لإثبات الدفع.</span>
+                </div>
+                
+                <div class="order-summary-box">
+                    <h4 class="summary-box-title font-arabic" data-key="summary-title">ملخص طلبك النهائي:</h4>
+                    <ul class="summary-box-list font-arabic" id="modal-order-summary-list">
+                        <!-- Filled dynamically -->
+                    </ul>
+                    <div class="summary-box-total">
+                        <span class="font-arabic" data-key="summary-total">المجموع الإجمالي:</span>
+                        <strong class="font-english" id="modal-order-summary-total">0.00 JD</strong>
+                    </div>
+                </div>
+
+                <div class="checkout-actions">
+                    <button type="submit" class="btn btn-primary btn-block font-arabic" id="submit-order-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp animate-bounce-horizontal"></i> إرسال وتأكيد الطلب بالواتساب
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <span class="logo-emoji">🌴</span>
+                    <span class="logo-name font-arabic">كيكس عمّان</span>
+                </div>
+                <p class="footer-about font-arabic" id="footer-about-text">
+                    مشروع حلويات وبوتيك تمر فاخر في عمان، الأردن. نتميز بدمج التراث المحلي كتمور المجهول الفاخرة والنمورة بلمسات فريدة من الشوكولاتة البلجيكية الراقية وترافلز الورد لتناسب كافة أوقاتكم ومناسباتكم السعيدة.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/keks.amman/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/962781124849" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="footer-title font-arabic" data-key="foot-links">روابط سريعة</h4>
+                <ul>
+                    <li><a href="#hero" class="font-arabic" data-key="nav-home">الرئيسية</a></li>
+                    <li><a href="#story" class="font-arabic" data-key="nav-story">قصة كيكس</a></li>
+                    <li><a href="#menu" class="font-arabic" data-key="nav-menu">قائمة الحلويات</a></li>
+                    <li><a href="#baking" class="font-arabic" data-key="nav-oven">مطبخنا الفاخر</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 class="footer-title font-arabic" data-key="foot-contact">معلومات الاتصال بالبوتيك</h4>
+                <ul class="contact-list font-arabic">
+                    <li><i class="fa-solid fa-location-dot"></i> <span data-key="foot-loc">عمان، المملكة الأردنية الهاشمية 🇯🇴</span></li>
+                    <li><i class="fa-solid fa-truck"></i> <span data-key="foot-deliv">توصيل سريع لكافة مناطق عمان الكبرى</span></li>
+                    <li><i class="fa-solid fa-clock"></i> <span data-key="foot-hours">الطلبات متاحة 24/7 والتوصيل يومي</span></li>
+                    <li><i class="fa-brands fa-instagram"></i> <span>Direct Message: @keks.amman</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright font-arabic">
+            <div class="container text-center">
+                <p>© 2026 كيكس عمّان. صُنع بكل حُب واحترافية عالية لتلبية أذواقكم الراقية. 💖🌴🍫</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
